@@ -2,23 +2,49 @@
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.poetry]
+[tool.setuptools.packages.find]
+include = ["tgb_seq", "tgb_seq.*"]
+exclude = ["plots*", "toy_example*", "test_env*", "examples*"]
+
+[project]
 name = "tgb_seq"
-version = "0.1.1"
+version = "0.1.2"
 description = "Temporal Graph Benchmark with Sequential Dynamics"
-authors = [ "Lu Yi <yilu@ruc.edu.cn>", "Jie Peng <peng_jie@ruc.edu.cn>", "Yanping Zheng <zhengyanping@ruc.edu.cn>", "Fengran Mo <fengran.mo@umontreal.ca>", "Zhewei Wei <zhewei@ruc.edu.cn>", "YuHang Ye <yeyuhang@huawei.com>", "Zixuan Yue <yuezixuan@huawei.com>", "Zengfeng Huang <huangzf@fudan.edu.cn>" ]
-packages = [
-    { include = "tgb_seq" }
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    { name = "Lu Yi", email = "yilu@ruc.edu.cn" },
+    { name = "Jie Peng", email = "peng_jie@ruc.edu.cn" },
+    { name = "Yanping Zheng", email = "zhengyanping@ruc.edu.cn" },
+    { name = "Fengran Mo", email = "fengran.mo@umontreal.ca" },
+    { name = "Zhewei Wei", email = "zhewei@ruc.edu.cn" },
+    { name = "YuHang Ye", email = "yeyuhang@huawei.com" },
+    { name = "Zixuan Yue", email = "yuezixuan@huawei.com" },
+    { name = "Zengfeng Huang", email = "huangzf@fudan.edu.cn" }
 ]
-exclude = ["plots/*", "toy_example/*"]
+requires-python = ">=3.9"
+dependencies = [
+    "datetime>=5.5",
+    "numpy>=2.0",
+    "pandas>=2.0.0",
+    "huggingface-hub>=0.26.0",
+    "torch>=2.3.0"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 
-[tool.poetry.dependencies]
-python = "^3.9" 
-datetime = "^5.5"
-numpy = ">2.0"
-pandas = "^2.0.0"
-huggingface-hub = "^0.26.0"
-torch = "^2.3.0"
-
-[tool.poetry.dev-dependencies]
-pytest = "^6.2.4"  # 开发依赖
+[project.urls]
+Homepage = "https://github.com/TGB-Seq/TGB-Seq"
+Documentation = "https://github.com/TGB-Seq/TGB-Seq"
+Repository = "https://github.com/TGB-Seq/TGB-Seq"
+Issues = "https://github.com/TGB-Seq/TGB-Seq/issues"
